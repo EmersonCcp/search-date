@@ -242,14 +242,14 @@ export class AppComponent implements OnInit {
       today.setHours(0, 0, 0, 0); // Asegurarse de que la fecha comienza al inicio del día.
       this.minDate = today;
       this.maxEndDate = new Date(today);
-      this.maxEndDate.setDate(this.maxEndDate.getDate() + 2);
+      this.maxEndDate.setDate(this.maxEndDate.getDate() + 1);
     } else {
       const today = new Date(value);
 
       today.setHours(0, 0, 0, 0); // Asegurarse de que la fecha comienza al inicio del día.
       this.minDate = today;
       this.maxEndDate = new Date(today);
-      this.maxEndDate.setDate(this.maxEndDate.getDate() + 2);
+      this.maxEndDate.setDate(this.maxEndDate.getDate() + 1);
       this.times = [];
       for (let i = 0; i < this.totalTimes; i++) {
         this.times.push(this.timesCopy[i]);
@@ -312,7 +312,7 @@ export class AppComponent implements OnInit {
       let startDate = this.dateForm.value.startDate;
       if (fourHoursLaterIndex > this.totalTimes) {
         let currentDate = new Date(startDate);
-        currentDate.setDate(currentDate.getDate() + 2);
+        currentDate.setDate(currentDate.getDate() + 1);
         this.minDate = currentDate;
         let tamanio = fourHoursLaterIndex - this.totalTimes;
         this.endTimeOptions = [];
@@ -329,7 +329,7 @@ export class AppComponent implements OnInit {
     } else {
       if (startTimeIndex >= 39) {
         let currentDate = new Date(startDate);
-        currentDate.setDate(currentDate.getDate() + 2);
+        currentDate.setDate(currentDate.getDate() + 1);
         this.minDate = currentDate;
       }
 
