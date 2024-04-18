@@ -1,65 +1,82 @@
-<div class="flex justify-center items-center mt-10 w-auto h-[500px]">
+<div class="bg-slate-900 h-screen p-5 flex items-center justify-center">
   <form
     [formGroup]="dateForm"
-    class="px-10 bg-gray-100 rounded-full"
+    class="flex flex-col lg:flex-row lg:max-h-16 py-6 lg:py-0 bg-white lg:rounded-full items-center px-6 gap-10"
     (ngSubmit)="ngSubmit()"
   >
-    <mat-form-field class="w-[150px] bg-gray-100">
-      <mat-label>Desde</mat-label>
-      <input
-        formControlName="startDate"
-        matInput
-        [matDatepicker]="picker"
-        [min]="minDateInicial"
-      />
-      <mat-datepicker-toggle
-        matIconSuffix
-        [for]="picker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    <div class="flex w-full title justify-start items-center">
+      <img src="/assets/location.png" alt="" />
+      <div class="text-xl">Aeropuerto</div>
+    </div>
 
-    <mat-form-field class="w-[150px] bg-gray-100" appearance="fill">
-      <mat-label>Hora</mat-label>
-      <mat-select formControlName="startTime">
-        <mat-option *ngFor="let time of times" [value]="time">
-          {{ time }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div class="lg:flex w-full flex ">
 
-    <mat-form-field class="w-[150px] bg-gray-100">
-      <mat-label>Hasta</mat-label>
-      <input
-        formControlName="endDate"
-        matInput
-        [matDatepicker]="picker2"
-        [min]="minDate"
-        [max]="maxEndDate"
-      />
-      <mat-datepicker-toggle
-        matIconSuffix
-        [for]="picker2"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-    </mat-form-field>
+      <div class="vl hidden lg:block"></div>
 
-    <mat-form-field class="w-[150px] bg-gray-100" appearance="fill">
-      <mat-label>Hora</mat-label>
-      <mat-select formControlName="endTime">
-        <mat-option *ngFor="let time of endTimeOptions" [value]="time">
-          {{ time }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field class="w-full">
+        <mat-label>Desde</mat-label>
+        <input
+          formControlName="startDate"
+          matInput
+          [matDatepicker]="picker"
+          [min]="minDateInicial"
+        />
+        <mat-datepicker-toggle
+       
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="w-full" >
+        <mat-label>Hora</mat-label>
+        <mat-select  formControlName="startTime">
+          <mat-option  *ngFor="let time of times" [value]="time">
+            {{ time }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="vl"></div>
 
-    <button
+
+      <mat-form-field class="w-full">
+        <mat-label>Hasta</mat-label>
+        <input
+          formControlName="endDate"
+          matInput
+          [matDatepicker]="picker2"
+          [min]="minDate"
+          [max]="maxEndDate"
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="w-full" >
+        <mat-label>Hora</mat-label>
+        <mat-select formControlName="endTime">
+          <mat-option  *ngFor="let time of endTimeOptions" [value]="time">
+            {{ time }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+
+    </div>
+
+<div class="w-full">
+      <button
+
       [disabled]="dateForm.invalid"
-      [ngClass]="{ 'bg-orange-200 cursor-default' : dateForm.invalid,
-    'bg-orange-400 bg-blue hover:bg-orange-500 cursor-pointer': dateForm.valid, }"
-      class="px-4 ml-9 text-white rounded-full text-xl"
+      [ngClass]="{ 'button-invalid' : dateForm.invalid,
+    'button-valid': dateForm.valid, }"
+      class="button min-w-[100px]"
     >
       Buscar
     </button>
+</div>
   </form>
 </div>
