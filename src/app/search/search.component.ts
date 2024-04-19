@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -226,7 +231,6 @@ export class SearchComponent {
           endTime: '',
         });
         this.updateEndStart(value);
-        // this.updateEndDateLimits(value);
       }
     });
 
@@ -269,9 +273,6 @@ export class SearchComponent {
           }
         } else {
           if (fourHoursLaterIndex > this.totalTimes) {
-            // let currentDate = new Date();
-            // currentDate.setDate(currentDate.getDate() + 1);
-            // this.minDate = currentDate;
             let tamanio = fourHoursLaterIndex - this.totalTimes;
             for (tamanio; tamanio < this.totalTimes; tamanio++) {
               this.endTimeOptions.push(this.timesCopy[tamanio]);
@@ -359,18 +360,6 @@ export class SearchComponent {
     // Compara la fecha a verificar con 'mañana'
     return dateToCheck.getTime() === tomorrow.getTime();
   }
-
-  // private updateEndDateLimits(startDate: Date) {
-  //   this.dateForm.get('endDate')!.enable();
-  //   this.dateForm.patchValue({ endDate: null }); // Reset end date when start date changes
-
-  //   const minEndDate = new Date(startDate); // Min is the same as start date
-  //   const maxEndDate = new Date(startDate);
-  //   maxEndDate.setDate(maxEndDate.getDate() + 1); // Max is the next day
-
-  //   // this.minDate = minEndDate; // Set the minimum date to the start date
-  //   this.maxEndDate = maxEndDate; // Set the maximum date to the next day
-  // }
 
   updateTimeEnd(value: any) {
     let startTimeIndex = this.timesCopy.indexOf(value);

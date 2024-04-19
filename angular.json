@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "search-date:build:production"
+              "buildTarget": "search-date:build:production"
             },
             "development": {
-              "browserTarget": "search-date:build:development"
+              "buildTarget": "search-date:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "search-date:build"
+            "buildTarget": "search-date:build"
           }
         },
         "test": {
